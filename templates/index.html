@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Simulator Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/monokai.min.css">
+</head>
+<body>
+    <h1>Firewall Simulator Game</h1>
+    <div id="controls">
+        <div class="left-controls">
+            <button id="start-pause">Start Traffic</button>
+            <div id="timer">Time: 00:00</div>
+        </div>
+        <div class="right-controls">
+            <div id="score">Score: <span id="score-value">Filtered Malicious: 0 | Filtered Benign: 0</span></div>
+        </div>
+    </div>
+    <div id="game-container">
+        <div id="packages-container"></div>
+        <div id="firewall"></div>
+    </div>
+    <div id="code-and-snippets">
+        <div id="code-editor">
+            <h2>Update the firewall code to make it smarter</h2>
+            <button id="help-button">Help</button>
+            <textarea id="firewall-code"></textarea>
+        </div>
+        <div id="snippet-library">
+            <h2>Or choose one of the snippets</h2>
+            <div id="snippet-list"></div>
+        </div>
+    </div>
+    <div id="error-message" style="display: none;"></div>
+    <div id="package-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="package-details"></div>
+        </div>
+    </div>
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="help-content"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
