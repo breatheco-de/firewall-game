@@ -4,7 +4,7 @@ import random
 
 app = Flask(__name__)
 
-@app.route('/api/default_firewall_code')
+@app.route('/api/firewall')
 def get_default_firewall_code():
     default_code = '''
 function check_package(package) {

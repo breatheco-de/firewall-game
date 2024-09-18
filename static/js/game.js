@@ -56,7 +56,7 @@ function populateSnippetLibrary() {
 }
 
 function insertSnippet(file) {
-    fetch(`/static/snippets/${file}`)
+    fetch(`/api/snippets/${file}`)
         .then(response => response.text())
         .then(code => {
             editor.setValue(code);
@@ -284,7 +284,7 @@ window.addEventListener('click', (event) => {
 });
 
 // Initialize the game
-fetch('/api/default_firewall_code')
+fetch('/api/firewall')
     .then(response => response.json())
     .then(data => {
         console.log('Received default firewall code:', data);

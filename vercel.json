@@ -5,7 +5,9 @@
     { "src": "static/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/packages", "dest": "/api/packages.py" },
+    { "src": "/api/snippets/all", "dest": "/api/all_snippets.py" },
+    { "src": "/api/snippets/(.*)", "dest": "/api/snippets.py" },
+    { "src": "/api/(.*)", "dest": "/api/$1.py" },
     { "src": "/(.*)", "dest": "/static/$1" }
   ]
 }
