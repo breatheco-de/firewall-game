@@ -6,4 +6,4 @@ app = Flask(__name__)
 
 @app.route('/api/snippets/<path:filename>')
 def handler(filename):
-    return send_from_directory('snippets', filename)
+    return send_from_directory('api/snippets', filename)

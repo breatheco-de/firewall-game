@@ -5,7 +5,7 @@ from flask import jsonify, Flask
 app = Flask(__name__)
 
 def load_packages():
-    with open('malicious_packages.json', 'r') as f:
+    with open('api/malicious_packages.json', 'r') as f:
         return json.load(f)
     
 def generate_non_malicious_package():
@@ -22,7 +22,7 @@ def generate_non_malicious_package():
     }
 
 @app.route('/api/packages')
-def handler():
+def get_packages():
     packages = load_packages()
     num_packages = 10
     return jsonify(packages[:num_packages])
