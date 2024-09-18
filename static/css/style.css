@@ -163,8 +163,8 @@ h1 {
     display: none;
     position: fixed;
     z-index: 1;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -173,10 +173,11 @@ h1 {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    margin: 50vh 50vw;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
     max-width: 600px;
     border-radius: 5px;
 }

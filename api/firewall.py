@@ -11,8 +11,8 @@ function check_package(package) {
     // Implement your firewall logic here
     // Return true to allow the package, false to block it
     
-    // Example: Block packages with 'vulnerability' field
-    if ('vulnerability' in package) {
+    // Example: Block packages with GET method
+    if (package.method === 'GET') {
         return false;
     }
     return true;

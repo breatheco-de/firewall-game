@@ -1,6 +1,6 @@
 import json
 import random
-from flask import jsonify, Flask
+from flask import jsonify, Flask, request
 
 app = Flask(__name__)
 
@@ -21,8 +21,13 @@ def generate_non_malicious_package():
         "body": ""
     }
 
-@app.route('/api/packages')
+@app.route('/api/packages', methods=['GET'])
 def get_packages():
+    num_packages = int(request.args.get('num_packages', 10))
     packages = load_packages()
-    num_packages = 10
-    return jsonify(packages[:num_packages])
+    new_packages = [generate_non_malicious_package() for _ in range(num_packages)]
+    
+    combined_packages = packages + new_packages
+    random.shuffle(combined_packages)
+    
+    return jsonify(combined_packages)

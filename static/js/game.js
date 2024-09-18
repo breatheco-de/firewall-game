@@ -50,7 +50,7 @@ function populateSnippetLibrary() {
         const snippetElement = document.createElement('div');
         snippetElement.className = 'snippet';
         snippetElement.textContent = file.replace('_', ' ').replace('.js', '');
-        snippetElement.addEventListener('click', () => insertSnippet(file));
+        snippetElement.addEventListener('click', () => insertSnippet(file.replace('.js', '')));
         snippetList.appendChild(snippetElement);
     });
 }
@@ -238,7 +238,8 @@ window.addEventListener('click', (event) => {
 
 helpButton.addEventListener('click', () => {
     helpContent.innerHTML = `
-        <h2>How to Write Firewall Code</h2>
+        <p>Update the firewall code to filter ONLY malicious packages. No benign packages should be filtered.</p>
+        <h3>How to Write Firewall Code</h3>
         <p>Your firewall code should be a function named <code>check_package</code> that takes a single argument <code>package</code>. This function should return <code>true</code> to allow the package or <code>false</code> to block it.</p>
         <h3>Available Package Properties</h3>
         <ul>
@@ -248,7 +249,7 @@ helpButton.addEventListener('click', () => {
             <li><code>package.body</code>: The body of the request (for POST requests)</li>
         </ul>
         <h3>Sample Code</h3>
-        <pre>
+        <pre style="background: #eeeeee; padding: 5px; border-radius: 10px;">
 function check_package(package) {
     // Block all POST requests
     if (package.method === 'POST') {
