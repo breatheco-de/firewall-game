@@ -22,7 +22,7 @@ def generate_non_malicious_package():
     }
 
 @app.route('/api/packages')
-def handler(request):
+def handler():
     packages = load_packages()
     num_packages = 10
     return jsonify(packages[:num_packages])
